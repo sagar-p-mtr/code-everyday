@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Teacher {
+private:
+    double salary;
+
+public:
+    Teacher() {
+        dept = "Computer Science";
+    }
+
+    string name;
+    string dept;
+    string subject;
+
+    void changeDept(string newDept) {
+        dept = newDept;
+    }
+
+    // setter
+    void setSalary(double s) {
+        salary = s;
+    }
+
+    // getter
+    double getSalary() {
+        return salary;
+    }
+};
+
+int main() {
+    Teacher t1;   // constructor call
+    t1.name = "Sagar";
+    t1.subject = "C++";
+    t1.setSalary(25000);
+
+    cout << t1.dept << endl;
+
+    return 0;
+}
