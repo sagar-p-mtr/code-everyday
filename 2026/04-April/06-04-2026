@@ -1,0 +1,9 @@
+// Bank system where balance is hidden for security
+class Bank {
+private:
+    int balance;
+
+public:
+    void setBalance(int b) { balance = b; }
+    int getBalance() { return balance; }
+};
