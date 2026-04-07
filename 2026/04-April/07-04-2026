@@ -1,0 +1,9 @@
+// Automatically setting student marks at creation
+class Student {
+public:
+    int marks;
+
+    Student(int m) {
+        marks = m;
+    }
+};
