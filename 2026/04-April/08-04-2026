@@ -1,0 +1,23 @@
+// Car using features of Vehicle (engine start)
+#include <iostream>
+using namespace std;
+
+class Vehicle {
+public:
+    void start() {
+        cout << "Vehicle started" << endl;
+    }
+};
+
+class Car : public Vehicle {
+public:
+    void drive() {
+        cout << "Car is driving" << endl;
+    }
+};
+
+int main() {
+    Car c;
+    c.start();   // inherited
+    c.drive();   // own function
+}
