@@ -1,0 +1,25 @@
+// Same function behaving differently for roles
+#include <iostream>
+using namespace std;
+
+class Person {
+public:
+    virtual void work() {
+        cout << "Working" << endl;
+    }
+};
+
+class Student : public Person {
+public:
+    void work() {
+        cout << "Studying" << endl;
+    }
+};
+
+int main() {
+    Person* p;
+    Student s;
+
+    p = &s;
+    p->work();   // calls Student version
+}
