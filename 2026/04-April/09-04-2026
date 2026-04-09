@@ -1,0 +1,23 @@
+// Adding two boxes (objects) using + operator
+#include <iostream>
+using namespace std;
+
+class Box {
+public:
+    int items;
+
+    Box(int i) {
+        items = i;
+    }
+
+    Box operator+(Box b) {
+        return Box(items + b.items);
+    }
+};
+
+int main() {
+    Box b1(10), b2(20);
+    Box b3 = b1 + b2;
+
+    cout << "Total items: " << b3.items;
+}
