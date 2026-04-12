@@ -1,0 +1,22 @@
+// Setting student marks using current object
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    int marks;
+
+    void setMarks(int marks) {
+        this->marks = marks;
+    }
+
+    void display() {
+        cout << "Marks: " << marks;
+    }
+};
+
+int main() {
+    Student s;
+    s.setMarks(95);
+    s.display();
+}
