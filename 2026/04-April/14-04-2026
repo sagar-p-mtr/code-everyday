@@ -1,0 +1,18 @@
+// Cleaning up resources when object is destroyed
+#include <iostream>
+using namespace std;
+
+class Test {
+public:
+    Test() {
+        cout << "Object created" << endl;
+    }
+
+    ~Test() {
+        cout << "Memory released" << endl;
+    }
+};
+
+int main() {
+    Test t;
+}
