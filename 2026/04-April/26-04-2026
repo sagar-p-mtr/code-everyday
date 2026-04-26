@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+class FindMax {
+public:
+    int a, b, c;
+
+    void input() {
+        cout << "Enter three numbers: ";
+        cin >> a >> b >> c;
+    }
+
+    void displayMax() {
+        int maxVal = a;
+        if(b > maxVal) maxVal = b;
+        if(c > maxVal) maxVal = c;
+
+        cout << "Maximum number is: " << maxVal << endl;
+    }
+};
+
+int main() {
+    FindMax obj;
+    obj.input();
+    obj.displayMax();
+    return 0;
+}
