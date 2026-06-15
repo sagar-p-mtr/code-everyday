@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str1, str2;
+
+    cout << "Enter first string: ";
+    cin >> str1;
+
+    cout << "Enter second string: ";
+    cin >> str2;
+
+    if(str1.length() != str2.length()) {
+        cout << "Not Anagrams";
+        return 0;
+    }
+
+    for(int i = 0; i < str1.length(); i++) {
+        for(int j = i + 1; j < str1.length(); j++) {
+            if(str1[i] > str1[j]) swap(str1[i], str1[j]);
+            if(str2[i] > str2[j]) swap(str2[i], str2[j]);
+        }
+    }
+
+    if(str1 == str2)
+        cout << "Anagrams";
+    else
+        cout << "Not Anagrams";
+
+    return 0;
+}
