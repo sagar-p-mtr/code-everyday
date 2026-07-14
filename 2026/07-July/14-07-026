@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a[3][3];
+    bool lower = true;
+
+    cout << "Enter 3x3 matrix:\n";
+
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            cin >> a[i][j];
+        }
+    }
+
+    for(int i = 0; i < 3; i++) {
+        for(int j = i + 1; j < 3; j++) {
+            if(a[i][j] != 0) {
+                lower = false;
+            }
+        }
+    }
+
+    if(lower)
+        cout << "Lower Triangular Matrix";
+    else
+        cout << "Not a Lower Triangular Matrix";
+
+    return 0;
+}
