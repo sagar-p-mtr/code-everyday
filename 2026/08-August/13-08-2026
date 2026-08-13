@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[100], n, result = -1;
+
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    cout << "Enter elements:\n";
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+
+    for(int i = 0; i < n; i++) {
+        int count = 0;
+
+        for(int j = 0; j < n; j++) {
+            if(arr[i] == arr[j])
+                count++;
+        }
+
+        if(count == 1) {
+            result = arr[i];
+            break;
+        }
+    }
+
+    if(result != -1)
+        cout << "First non-repeating element = " << result;
+    else
+        cout << "No non-repeating element";
+
+    return 0;
+}
