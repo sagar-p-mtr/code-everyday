@@ -1,0 +1,142 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+class Student {
+public:
+    int id;
+    string name;
+    float marks;
+
+    Student(int i, string n, float m) {
+        id = i;
+        name = n;
+        marks = m;
+    }
+
+    void display() {
+        cout << "ID: " << id
+             << " | Name: " << name
+             << " | Marks: " << marks << endl;
+    }
+};
+
+int main() {
+    vector<Student> students;
+    int choice;
+
+    do {
+        cout << "\n===== Student Management =====\n";
+        cout << "1. Add Student\n";
+        cout << "2. Display Students\n";
+        cout << "3. Search Student\n";
+        cout << "4. Sort by Marks\n";
+        cout << "5. Show Top Student\n";
+        cout << "6. Calculate Average\n";
+        cout << "0. Exit\n";
+        cout << "Enter choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            int id;
+            string name;
+            float marks;
+
+            cout << "Enter ID: ";
+            cin >> id;
+
+            cout << "Enter Name: ";
+            cin >> name;
+
+            cout << "Enter Marks: ";
+            cin >> marks;
+
+            students.push_back(Student(id, name, marks));
+
+            cout << "Student added successfully!\n";
+        }
+
+        else if (choice == 2) {
+            if (students.empty()) {
+                cout << "No students found.\n";
+            } else {
+                cout << "\n--- Students ---\n";
+
+                for (Student s : students) {
+                    s.display();
+                }
+            }
+        }
+
+        else if (choice == 3) {
+            int id;
+            bool found = false;
+
+            cout << "Enter ID to search: ";
+            cin >> id;
+
+            for (Student s : students) {
+                if (s.id == id) {
+                    s.display();
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+                cout << "Student not found.\n";
+        }
+
+        else if (choice == 4) {
+            sort(students.begin(), students.end(),
+                 [](Student a, Student b) {
+                     return a.marks > b.marks;
+                 });
+
+            cout << "Students sorted by marks.\n";
+        }
+
+        else if (choice == 5) {
+            if (students.empty()) {
+                cout << "No students available.\n";
+            } else {
+                Student top = students[0];
+
+                for (Student s : students) {
+                    if (s.marks > top.marks)
+                        top = s;
+                }
+
+                cout << "\nTop Student:\n";
+                top.display();
+            }
+        }
+
+        else if (choice == 6) {
+            if (students.empty()) {
+                cout << "No students available.\n";
+            } else {
+                float total = 0;
+
+                for (Student s : students)
+                    total += s.marks;
+
+                cout << "Average Marks: "
+                     << total / students.size()
+                     << endl;
+            }
+        }
+
+        else if (choice == 0) {
+            cout << "Program ended.\n";
+        }
+
+        else {
+            cout << "Invalid choice!\n";
+        }
+
+    } while (choice != 0);
+
+    return 0;
+}
