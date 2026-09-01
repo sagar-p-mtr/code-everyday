@@ -1,0 +1,91 @@
+#include <iostream>
+using namespace std;
+
+class BankAccount {
+private:
+    int accountNo;
+    string name;
+    double balance;
+
+public:
+    BankAccount(int acc, string n, double b) {
+        accountNo = acc;
+        name = n;
+        balance = b;
+    }
+
+    void deposit(double amount) {
+        balance += amount;
+        cout << "Amount deposited successfully!\n";
+    }
+
+    void withdraw(double amount) {
+        if (amount > balance)
+            cout << "Insufficient balance!\n";
+        else {
+            balance -= amount;
+            cout << "Amount withdrawn successfully!\n";
+        }
+    }
+
+    void display() {
+        cout << "\nAccount Number: " << accountNo << endl;
+        cout << "Name: " << name << endl;
+        cout << "Balance: ₹" << balance << endl;
+    }
+};
+
+int main() {
+    int acc, choice;
+    string name;
+    double balance, amount;
+
+    cout << "Enter Account Number: ";
+    cin >> acc;
+
+    cout << "Enter Name: ";
+    cin >> name;
+
+    cout << "Enter Initial Balance: ";
+    cin >> balance;
+
+    BankAccount account(acc, name, balance);
+
+    do {
+        cout << "\n===== BANK MENU =====\n";
+        cout << "1. Deposit\n";
+        cout << "2. Withdraw\n";
+        cout << "3. Check Account\n";
+        cout << "0. Exit\n";
+        cout << "Enter choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "Enter amount: ";
+                cin >> amount;
+                account.deposit(amount);
+                break;
+
+            case 2:
+                cout << "Enter amount: ";
+                cin >> amount;
+                account.withdraw(amount);
+                break;
+
+            case 3:
+                account.display();
+                break;
+
+            case 0:
+                cout << "Thank you for using the bank!\n";
+                break;
+
+            default:
+                cout << "Invalid choice!\n";
+        }
+
+    } while (choice != 0);
+
+    return 0;
+}
