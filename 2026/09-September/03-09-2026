@@ -1,0 +1,108 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+class Student {
+public:
+    int id;
+    string name;
+    float marks;
+
+    Student(int i, string n, float m) {
+        id = i;
+        name = n;
+        marks = m;
+    }
+
+    void display() {
+        cout << "\nID    : " << id;
+        cout << "\nName  : " << name;
+        cout << "\nMarks : " << marks;
+        cout << "\n-----------------------";
+    }
+};
+
+int main() {
+
+    vector<Student> students;
+    int choice;
+
+    do {
+        cout << "\n\n===== Student Management System =====";
+        cout << "\n1. Add Student";
+        cout << "\n2. Display Students";
+        cout << "\n3. Search Student";
+        cout << "\n4. Exit";
+        cout << "\nEnter your choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            int id;
+            string name;
+            float marks;
+
+            cout << "Enter student ID: ";
+            cin >> id;
+
+            cin.ignore();
+
+            cout << "Enter student name: ";
+            getline(cin, name);
+
+            cout << "Enter marks: ";
+            cin >> marks;
+
+            students.push_back(Student(id, name, marks));
+
+            cout << "\nStudent added successfully!";
+        }
+
+        else if (choice == 2) {
+
+            if (students.empty()) {
+                cout << "\nNo students available.";
+            } else {
+                cout << "\n\n===== Student Details =====";
+
+                for (Student s : students) {
+                    s.display();
+                }
+            }
+        }
+
+        else if (choice == 3) {
+
+            int searchId;
+            bool found = false;
+
+            cout << "Enter student ID to search: ";
+            cin >> searchId;
+
+            for (Student s : students) {
+
+                if (s.id == searchId) {
+                    cout << "\nStudent Found!";
+                    s.display();
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                cout << "\nStudent not found.";
+            }
+        }
+
+        else if (choice == 4) {
+            cout << "\nProgram ended.";
+        }
+
+        else {
+            cout << "\nInvalid choice. Try again.";
+        }
+
+    } while (choice != 4);
+
+    return 0;
+}
