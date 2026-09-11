@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a[100], n, result = 0;
+
+    cout << "Enter n: ";
+    cin >> n;
+
+    cout << "Enter " << n - 1 << " elements:\n";
+    for(int i = 0; i < n - 1; i++) {
+        cin >> a[i];
+        result ^= a[i];
+    }
+
+    for(int i = 1; i <= n; i++)
+        result ^= i;
+
+    cout << "Missing element = " << result << endl;
+
+    return 0;
+}
