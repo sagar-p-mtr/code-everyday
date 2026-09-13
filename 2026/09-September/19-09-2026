@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[100], n, repeated = -1;
+
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    cout << "Enter elements:\n";
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+
+    for(int i = 0; i < n; i++) {
+        for(int j = i + 1; j < n; j++) {
+            if(arr[i] == arr[j]) {
+                repeated = arr[i];
+                break;
+            }
+        }
+
+        if(repeated != -1)
+            break;
+    }
+
+    if(repeated != -1)
+        cout << "First repeated element = " << repeated;
+    else
+        cout << "No repeated element";
+
+    return 0;
+}
