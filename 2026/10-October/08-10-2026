@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str;
+    bool valid = true;
+
+    cout << "Enter a string: ";
+    cin >> str;
+
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] < '0' || str[i] > '9') {
+            valid = false;
+            break;
+        }
+    }
+
+    if (valid)
+        cout << "String contains only digits";
+    else
+        cout << "String contains non-digit characters";
+
+    return 0;
+}
