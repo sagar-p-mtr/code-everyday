@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int choice, books = 0, issued = 0;
+
+    do {
+        cout << "\n\n1. Add Books";
+        cout << "\n2. Display Books";
+        cout << "\n3. Issue Book";
+        cout << "\n4. Return Book";
+        cout << "\n5. Exit";
+        cout << "\nEnter choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "Enter number of books: ";
+                cin >> books;
+                if (books < 0) {
+                    cout << "Invalid number!";
+                    books = 0;
+                } else {
+                    cout << "Books added successfully!";
+                }
+                break;
+
+            case 2:
+                cout << "Available books: " << books;
+                break;
+
+            case 3:
+                if (books > 0) {
+                    books--;
+                    issued++;
+                    cout << "Book issued successfully!";
+                } else {
+                    cout << "No books available!";
+                }
+                break;
+
+            case 4:
+                if (issued > 0) {
+                    books++;
+                    issued--;
+                    cout << "Book returned successfully!";
+                } else {
+                    cout << "No books to return!";
+                }
+                break;
+
+            case 5:
+                cout << "Thank you!";
+                break;
+
+            default:
+                cout << "Invalid choice!";
+        }
+
+    } while (choice != 5);
+
+    return 0;
+}
