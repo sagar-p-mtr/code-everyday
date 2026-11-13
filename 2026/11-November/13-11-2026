@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    string name;
+    double basic, hra, da, gross;
+
+    cout << "Enter employee name: ";
+    getline(cin, name);
+
+    cout << "Enter basic salary: ";
+    cin >> basic;
+
+    if (basic < 0) {
+        cout << "Invalid salary!";
+        return 0;
+    }
+
+    hra = basic * 0.20;
+    da = basic * 0.10;
+    gross = basic + hra + da;
+
+    cout << "\nEmployee Name: " << name;
+    cout << "\nBasic Salary: Rs. " << basic;
+    cout << "\nHRA: Rs. " << hra;
+    cout << "\nDA: Rs. " << da;
+    cout << "\nGross Salary: Rs. " << gross;
+
+    return 0;
+}
