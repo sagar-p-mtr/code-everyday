@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    double price, total = 0, discount, finalBill;
+
+    cout << "Enter number of items: ";
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "Invalid number of items";
+        return 0;
+    }
+
+    for (int i = 1; i <= n; i++) {
+        cout << "Enter price of item " << i << ": ";
+        cin >> price;
+
+        if (price < 0) {
+            cout << "Invalid price";
+            return 0;
+        }
+
+        total += price;
+    }
+
+    if (total >= 5000)
+        discount = total * 0.20;
+    else if (total >= 2000)
+        discount = total * 0.10;
+    else
+        discount = 0;
+
+    finalBill = total - discount;
+
+    cout << "\nTotal Amount: Rs. " << total;
+    cout << "\nDiscount: Rs. " << discount;
+    cout << "\nFinal Bill: Rs. " << finalBill;
+
+    return 0;
+}
