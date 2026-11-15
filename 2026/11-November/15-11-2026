@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    string name;
+    int age, tickets;
+    double fare = 150, total;
+
+    cout << "Enter passenger name: ";
+    getline(cin, name);
+
+    cout << "Enter age: ";
+    cin >> age;
+
+    cout << "Enter number of tickets: ";
+    cin >> tickets;
+
+    if (age < 0 || tickets <= 0) {
+        cout << "Invalid details";
+        return 0;
+    }
+
+    total = tickets * fare;
+
+    if (age < 12)
+        total *= 0.5;
+    else if (age >= 60)
+        total *= 0.8;
+
+    cout << "\n--- Ticket Details ---";
+    cout << "\nPassenger: " << name;
+    cout << "\nAge: " << age;
+    cout << "\nTickets: " << tickets;
+    cout << "\nTotal Fare: Rs. " << total;
+
+    cout << "\nBooking Successful!";
+
+    return 0;
+}
