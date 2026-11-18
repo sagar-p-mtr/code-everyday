@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    string name;
+    int age, days;
+    double roomCharge, doctorFee, total;
+
+    cout << "Enter patient name: ";
+    getline(cin, name);
+
+    cout << "Enter patient age: ";
+    cin >> age;
+
+    cout << "Enter number of days: ";
+    cin >> days;
+
+    if (age < 0 || days < 0) {
+        cout << "Invalid details";
+        return 0;
+    }
+
+    cout << "Enter room charge per day: ";
+    cin >> roomCharge;
+
+    cout << "Enter doctor fee: ";
+    cin >> doctorFee;
+
+    if (roomCharge < 0 || doctorFee < 0) {
+        cout << "Invalid charges";
+        return 0;
+    }
+
+    total = (days * roomCharge) + doctorFee;
+
+    cout << "\n--- Patient Details ---";
+    cout << "\nName: " << name;
+    cout << "\nAge: " << age;
+    cout << "\nTotal Bill: Rs. " << total;
+
+    return 0;
+}
