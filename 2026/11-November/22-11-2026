@@ -1,0 +1,25 @@
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int hours;
+    double fee;
+
+    cout << "Enter parking hours: ";
+    cin >> hours;
+
+    if (hours <= 0) {
+        cout << "Invalid parking hours!";
+    }
+    else if (hours <= 2) {
+        fee = 30;
+        cout << "Parking Fee: Rs." << fee;
+    }
+    else {
+        fee = 30 + (hours - 2) * 10;
+        cout << "Parking Fee: Rs." << fee;
+    }
+
+    return 0;
+}
