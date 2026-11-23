@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+
+    cout << "Enter a number: ";
+    cin >> num;
+
+    if (num > 0) {
+        cout << "Number is positive" << endl;
+    }
+    else if (num < 0) {
+        cout << "Number is negative" << endl;
+    }
+    else {
+        cout << "Number is zero" << endl;
+    }
+
+    if (num != 0) {
+        if (num % 2 == 0) {
+            cout << "Number is even" << endl;
+        }
+        else {
+            cout << "Number is odd" << endl;
+        }
+    }
+
+    cout << "Program completed successfully." << endl;
+    return 0;
+}
