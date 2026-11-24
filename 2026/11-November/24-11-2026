@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int marks1, marks2, marks3, marks4, marks5;
+    int total;
+    float percentage;
+
+    cout << "Enter marks for 5 subjects: ";
+    cin >> marks1 >> marks2 >> marks3 >> marks4 >> marks5;
+
+    total = marks1 + marks2 + marks3 + marks4 + marks5;
+    percentage = (total / 500.0) * 100;
+
+    cout << "\n----- Student Result -----" << endl;
+    cout << "Subject 1: " << marks1 << endl;
+    cout << "Subject 2: " << marks2 << endl;
+    cout << "Subject 3: " << marks3 << endl;
+    cout << "Subject 4: " << marks4 << endl;
+    cout << "Subject 5: " << marks5 << endl;
+    cout << "Total Marks: " << total << "/500" << endl;
+    cout << "Percentage: " << percentage << "%" << endl;
+
+    if (percentage >= 90)
+        cout << "Grade: A+" << endl;
+    else if (percentage >= 75)
+        cout << "Grade: A" << endl;
+    else if (percentage >= 60)
+        cout << "Grade: B" << endl;
+    else if (percentage >= 50)
+        cout << "Grade: C" << endl;
+    else
+        cout << "Grade: Fail" << endl;
+
+    return 0;
+}
