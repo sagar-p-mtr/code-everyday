@@ -1,0 +1,27 @@
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int dosa, idli, rice;
+    int total;
+
+    cout << "Enter number of Dosas: ";
+    cin >> dosa;
+
+    cout << "Enter number of Idlis: ";
+    cin >> idli;
+
+    cout << "Enter number of Rice plates: ";
+    cin >> rice;
+
+    total = (dosa * 40) + (idli * 20) + (rice * 60);
+
+    cout << "\n----- BILL -----" << endl;
+    cout << "Dosa: Rs." << dosa * 40 << endl;
+    cout << "Idli: Rs." << idli * 20 << endl;
+    cout << "Rice: Rs." << rice * 60 << endl;
+    cout << "Total: Rs." << total << endl;
+
+    return 0;
+}
